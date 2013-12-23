@@ -654,16 +654,6 @@ main (int argc, char *argv[])
 			helper_failed (connection, "IP6 Address");
 	}
 
-	/* IPv6 remote address */
-	tmp = getenv ("ifconfig_ipv6_remote");
-	if (tmp && strlen (tmp)) {
-		val = addr6_to_gvalue (tmp);
-		if (val)
-			g_hash_table_insert (ip6config, NM_VPN_PLUGIN_IP6_CONFIG_PTP, val);
-		else
-			helper_failed (connection, "IP6 PTP Address");
-	}
-
 	/* IPv6 netbits */
 	tmp = getenv ("ifconfig_ipv6_netbits");
 	if (tmp && strlen (tmp)) {
